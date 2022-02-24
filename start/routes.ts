@@ -20,8 +20,18 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ inertia }) => {
-   return inertia.render('Home', { title: 'Home page' })
-})
+// Api Routes
+Route.group(async () => {
+   await require('./routes/api/api')
+}).prefix('api')
 
-Route.inertia('about', 'About')
+
+// Admin Routes
+Route.group(async () => {
+   await require('./routes/web/admin')
+}).prefix('admin')
+
+// Redirect to admin page
+Route.get('/', ({ response }) => {
+   return response.redirect().toPath('/admin')
+})
