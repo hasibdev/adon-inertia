@@ -32,6 +32,9 @@ Route.group(async () => {
 }).prefix('admin')
 
 // Redirect to admin page
-Route.get('/', ({ response }) => {
-   return response.redirect().toPath('/admin')
+Route.get('/', ({ inertia }) => {
+   return inertia.render('Home')
+})
+Route.get('/about', ({ inertia }) => {
+   return inertia.render('About')
 })
