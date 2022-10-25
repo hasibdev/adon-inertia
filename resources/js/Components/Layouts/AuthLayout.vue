@@ -3,11 +3,10 @@
 </script>
 
 <template>
-   <div>
-      <h1 class="text-center">About Page</h1>
-   </div>
+  <div>
+    <slot />
+  </div>
 </template>
-
 
 <style lang="scss" scoped>
 
