@@ -33,8 +33,9 @@ Route.group(async () => {
 
 // Redirect to admin page
 Route.get('/', ({ inertia }) => {
+
    return inertia.render('Home')
 })
-Route.get('/about', ({ inertia }) => {
+Route.get('/about', async ({ inertia }) => {
    return inertia.render('About')
 })

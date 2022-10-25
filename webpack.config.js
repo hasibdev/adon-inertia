@@ -185,11 +185,13 @@ Encore.enableVueLoader(() => { }, {
    version: 3,
    runtimeCompilerBuild: false,
    useJsx: false
-})
-
-Encore.addAliases({
+}).addAliases({
    '@': resolve(__dirname, 'resources/js')
-})
+}).configureDefinePlugin(options => {
+   options['__VUE_OPTIONS_API__'] = true
+   options['__VUE_PROD_DEVTOOLS__'] = false
+ })
+
 
 /*
 |--------------------------------------------------------------------------
