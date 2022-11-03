@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div class="bg-slate-300 h-screen pt-20">
-    <slot />
+  <div>
+
   </div>
 </template>
 
