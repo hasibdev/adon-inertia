@@ -6,21 +6,20 @@ export default class AuthController {
     return inertia.render('Auth/Login')
   }
   public async login({ response }: HttpContextContract) {
-    console.log('login');
-    
+    console.log('login')
     return response.redirect().back()
   }
 
-  
+
   public async viewRegister({ inertia }: HttpContextContract) {
     return inertia.render('Auth/Register')
   }
 
   public async register({ request, response }: HttpContextContract) {
     await request.validate(UserRegisterValidator)
-    
-    console.log(request.body());
-    
+
+    console.log(request.body())
+
     return response.redirect().back()
   }
 }

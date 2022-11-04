@@ -22,7 +22,14 @@ const props = defineProps({
   error: {
     type: [Array, String],
     default: ''
-  }
+  },
+  stack: {
+    type: Boolean,
+    default: false
+  },
+  placeholder: {
+    type: String,
+  },
 })
 
 const onChange = (e) => {
@@ -44,19 +51,20 @@ const getError = computed(() => {
 </script>
 
 <template>
-  <div class="flex">
+  <div :class="`flex ${stack ? 'flex-col' : 'flex-col lg:flex-row'}`">
     <!-- Label -->
-    <div>
-      <label v-if="props.label" :for="getId">{{ props.label }}</label>
+    <div :class="`${stack ? 'w-full mb-2' : 'lg:w-3/12 mb-2 lg:mb-0'}`">
+      <label v-if="label" :for="getId">{{ label }}</label>
     </div>
 
     <!-- Input -->
-    <div>
-      <input @input="onChange" :value="props.modelValue" :type="props.type" :id="getId"
-        class="block p-2 border w-full rounded mb-3 focus:outline-none focus-within:border-teal-700">
+    <div :class="`${stack ? 'w-full' : 'lg:w-9/12'}`">
+      <input @input="onChange" :value="modelValue" :type="type" :id="getId"
+        class="block py-2 px-3 border w-full rounded focus:outline-none focus-within:border-teal-700 focus-within:placeholder-transparent"
+        :class="`${getError ? 'border-red-500' : ''}`" :placeholder="placeholder || label">
 
       <!-- Error -->
-      <p v-if="getError" class="text-red-500">{{ getError }}</p>
+      <p v-if="getError" class="text-red-500 mt-1">{{ getError }}</p>
     </div>
   </div>
 </template>
