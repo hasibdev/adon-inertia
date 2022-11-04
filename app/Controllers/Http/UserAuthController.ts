@@ -1,5 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import UserValidator from 'App/Validators/UserValidator'
+import { UserRegisterValidator } from 'App/Validators/UserValidator'
 
 export default class AuthController {
   public async viewLogin({ inertia }: HttpContextContract) {
@@ -17,7 +17,7 @@ export default class AuthController {
   }
 
   public async register({ request, response }: HttpContextContract) {
-    await request.validate(UserValidator)
+    await request.validate(UserRegisterValidator)
     
     console.log(request.body());
     

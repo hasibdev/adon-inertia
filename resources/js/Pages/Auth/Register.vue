@@ -1,11 +1,21 @@
 <script setup>
 import { reactive } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
+import InputControl from '../../Components/forms/InputControl.vue'
+
+const props = defineProps({
+  errors: {
+    type: Object,
+    default: () => { }
+  }
+})
 
 const form = reactive({
-  name: '',
+  first_name: '',
+  last_name: '',
   email: '',
-  password: ''
+  password: '',
+  confirmed_password: '',
 })
 
 const register = async () => {
@@ -18,20 +28,15 @@ const register = async () => {
 <template>
   <div>
     <div class="w-3/5 mx-auto">
-      <h1>Register Page</h1>
+      <h1 class="my-10">Register Page</h1>
 
       <form @submit.prevent="register">
-        <label for="name">Name</label>
-        <input v-model="form.name" type="text" id="name"
-          class="block p-2 border w-full rounded mb-3 focus:outline-none focus-within:border-teal-700">
-
-        <label for="email">Email</label>
-        <input v-model="form.email" type="text" id="email"
-          class="block p-2 border w-full rounded mb-3 focus:outline-none focus-within:border-teal-700">
-
-        <label for="password">Password</label>
-        <input v-model="form.password" type="password" id="password"
-          class="block p-2 border w-full rounded mb-3 focus:outline-none focus-within:border-teal-700">
+        <InputControl v-model="form.first_name" label="First Name" :error="errors?.first_name" class="mb-3" />
+        <InputControl v-model="form.last_name" label="Last Name" :error="errors?.last_name" class="mb-3" />
+        <InputControl v-model="form.email" label="Email" :error="errors?.email" class="mb-3" />
+        <InputControl v-model="form.password" label="Password" :error="errors?.password" class="mb-3" />
+        <InputControl v-model="form.confirmed_password" label="Confirmed Password" :error="errors?.confirmed_password"
+          class="mb-3" />
 
         <div class="flex justify-end">
           <button type="submit" class="p-3 bg-teal-600 text-white rounded w-1/3 text-lg ">Register</button>
