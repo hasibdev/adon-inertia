@@ -1,11 +1,10 @@
 <script setup>
-import AdminHeader from "./AdminHeader.vue"
+
 </script>
 
 <template>
   <div>
-    <AdminHeader />
-    <slot />
+    <h2>Admin Header</h2>
   </div>
 </template>
 
