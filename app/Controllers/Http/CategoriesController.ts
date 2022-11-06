@@ -1,17 +1,24 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import { pagination } from 'App/helpers/utils'
+import Category from 'App/Models/Category'
 
 export default class CategoriesController {
-  public async index({}: HttpContextContract) {}
+  public async index({ request, inertia }: HttpContextContract) {
+    const { page, perPage } = pagination(request)
 
-  public async create({}: HttpContextContract) {}
+    const data = await Category.query().paginate(page, perPage)
+    return inertia.render('Admin/Categories/Index', { data })
+  }
 
-  public async store({}: HttpContextContract) {}
+  public async create({ }: HttpContextContract) { }
 
-  public async show({}: HttpContextContract) {}
+  public async store({ }: HttpContextContract) { }
 
-  public async edit({}: HttpContextContract) {}
+  public async show({ }: HttpContextContract) { }
 
-  public async update({}: HttpContextContract) {}
+  public async edit({ }: HttpContextContract) { }
 
-  public async destroy({}: HttpContextContract) {}
+  public async update({ }: HttpContextContract) { }
+
+  public async destroy({ }: HttpContextContract) { }
 }

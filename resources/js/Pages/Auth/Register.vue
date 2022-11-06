@@ -22,8 +22,7 @@ const form = useForm({
       <h1 class="my-10">Register Page</h1>
 
       <form @submit.prevent="form.post('/register')">
-        <InputControl stack v-model="form.first_name" label="First Name" :error="form.errors?.first_name"
-          class="mb-3" />
+        <InputControl v-model="form.first_name" label="First Name" :error="form.errors?.first_name" class="mb-3" />
         <InputControl v-model="form.last_name" label="Last Name" :error="form.errors?.last_name" class="mb-3" />
         <InputControl v-model="form.email" label="Email" :error="form.errors?.email" class="mb-3" />
         <InputControl v-model="form.password" label="Password" :error="form.errors?.password" class="mb-3" />
