@@ -1,13 +1,18 @@
 <script setup>
-import { reactive } from 'vue'
+import { useForm } from '@inertiajs/inertia-vue3'
+import InputControl from '@/Components/forms/InputControl.vue'
 
-const form = reactive({
-  identifier: '',
-  password: ''
+const form = useForm({
+  identifier: 'admin@test.com',
+  password: '123456'
 })
 
 const login = () => {
-  console.log('login')
+  form.post('/admin/login', {
+    onSuccess: () => {
+      form.reset()
+    }
+  })
 }
 
 </script>
@@ -25,13 +30,10 @@ export default {
 
     <div>
       <form @submit.prevent="login">
-        <label for="email">Email</label>
-        <input v-model="form.identifier" type="text" id="email"
-          class="block p-2 border w-full rounded mb-3 focus:outline-none focus-within:border-teal-700">
+        <InputControl stack v-model="form.identifier" label="Email" :error="form.errors?.identifier" class="mb-3" />
 
-        <label for="password">Password</label>
-        <input v-model="form.password" type="password" id="password"
-          class="block p-2 border w-full rounded mb-3 focus:outline-none focus-within:border-teal-700">
+        <InputControl stack v-model="form.password" type="password" label="Password" :error="form.errors?.password"
+          class="mb-3" />
 
         <div class="flex justify-end">
           <button type="submit" class="p-3 bg-teal-600 text-white rounded w-1/3 text-lg ">Login</button>
