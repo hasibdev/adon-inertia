@@ -1,6 +1,6 @@
 <script setup>
 import { useForm } from '@inertiajs/inertia-vue3'
-import InputControl from '../../Components/forms/InputControl.vue'
+import InputControl from '@/Components/forms/InputControl.vue'
 
 const props = defineProps({
 

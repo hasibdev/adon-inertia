@@ -1,6 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { pagination } from 'App/helpers/utils'
 import Product from 'App/Models/Product'
+import { CreateProductValidator } from 'App/Validators/ProductValidator'
 
 export default class ProductsController {
   public async index({ inertia, request }: HttpContextContract) {
@@ -14,7 +15,13 @@ export default class ProductsController {
     return inertia.render('Admin/Products/Create')
   }
 
-  public async store({ }: HttpContextContract) { }
+  public async store({ request, response }: HttpContextContract) {
+    const payload = await request.validate(CreateProductValidator)
+
+    await Product.create(payload)
+
+    return response.status(303).redirect('/admin/products')
+  }
 
   public async show({ inertia }: HttpContextContract) {
     return inertia.render('Admin/Products/Show')

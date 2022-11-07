@@ -1,6 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { pagination } from 'App/helpers/utils'
 import Category from 'App/Models/Category'
+import { CreateCategoryValidator } from 'App/Validators/CategoryValidator'
 
 export default class CategoriesController {
   public async index({ request, inertia }: HttpContextContract) {
@@ -12,7 +13,12 @@ export default class CategoriesController {
 
   public async create({ }: HttpContextContract) { }
 
-  public async store({ }: HttpContextContract) { }
+  public async store({ request, response }: HttpContextContract) {
+    const payload = await request.validate(CreateCategoryValidator)
+    await Category.create(payload)
+
+    return response.status(303).redirect('/admin/categories')
+  }
 
   public async show({ }: HttpContextContract) { }
 

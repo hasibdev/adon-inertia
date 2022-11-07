@@ -34,6 +34,8 @@
       "@eidellev/inertia-adonisjs",
       "@adonisjs/lucid",
       "@adonisjs/auth"
-    ]
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
   }
 }

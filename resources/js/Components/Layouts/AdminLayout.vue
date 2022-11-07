@@ -11,7 +11,7 @@ import AdminSidebar from "./AdminSidebar.vue"
       <AdminSidebar class="w-20 border-r" />
 
       <!-- Page Outupt -->
-      <div class="bg-slate-100 p-6 w-full">
+      <div class="bg-slate-50 p-6 w-full">
         <slot />
       </div>
     </div>
