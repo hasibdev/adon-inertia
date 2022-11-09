@@ -1,9 +1,13 @@
 <script setup>
+import { Inertia } from '@inertiajs/inertia'
 
+const logout = () => {
+  Inertia.post('admin/logout')
+}
 </script>
 
 <template>
-  <div>
+  <div class="flex flex-col justify-between">
     <ul class="flex flex-col items-center  mt-2">
       <!-- Dashboard -->
       <li>
@@ -40,6 +44,16 @@
           <path d="M10 15H7V17H10V15Z" fill="#9A9AB0" />
         </svg>
         </Link>
+      </li>
+    </ul>
+
+    <ul class="flex flex-col items-center mb-5">
+      <li @click="logout" class="cursor-pointer">
+        <svg width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+          <path
+            d="M160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96C43 32 0 75 0 128V384c0 53 43 96 96 96h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H96c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32h64zM504.5 273.4c4.8-4.5 7.5-10.8 7.5-17.4s-2.7-12.9-7.5-17.4l-144-136c-7-6.6-17.2-8.4-26-4.6s-14.5 12.5-14.5 22v72H192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32H320v72c0 9.6 5.7 18.2 14.5 22s19 2 26-4.6l144-136z" />
+        </svg>
       </li>
     </ul>
   </div>

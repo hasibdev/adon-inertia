@@ -12,4 +12,9 @@ export default class AuthController {
 
     return response.redirect('/admin')
   }
+
+  public async logout({ auth, inertia }: HttpContextContract) {
+    await auth.logout()
+    return inertia.render('Auth/AdminLogin')
+  }
 }
