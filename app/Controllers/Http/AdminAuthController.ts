@@ -17,4 +17,8 @@ export default class AuthController {
     await auth.logout()
     return inertia.render('Auth/AdminLogin')
   }
+
+  public async showProfile({ inertia }: HttpContextContract) {
+    return inertia.render('Admin/Profile/Index')
+  }
 }

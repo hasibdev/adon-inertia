@@ -10,5 +10,7 @@ Route.group(() => {
   Route.resource('categories', 'CategoriesController')
   Route.resource('products', 'ProductsController')
 
+  Route.get('profile', 'AdminAuthController.showProfile')
+
   Route.post('logout', 'AdminAuthController.logout')
 }).middleware('auth:admin')
