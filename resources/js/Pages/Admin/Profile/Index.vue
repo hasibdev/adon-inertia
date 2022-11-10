@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-  auth: {
+  user: {
     type: Object
   }
 })
@@ -19,7 +19,7 @@ export default {
       <div class="w-6/12 mx-auto border rounded p-8">
         <h1>Admin Profile</h1>
 
-        <h1>{{ props.auth.guards.admin.user.full_name }}</h1>
+        <h1>{{ user.full_name }}</h1>
       </div>
     </div>
   </div>

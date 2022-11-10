@@ -1,12 +1,12 @@
 <script setup>
-import Button from "@/Components/Base/Button"
+import PrimaryButton from "@/Components/Base/PrimaryButton"
 </script>
 
 <template>
    <div>
       <h1 class="text-center">Home Page</h1>
 
-      <Button>Click here</Button>
+      <PrimaryButton>Click here</PrimaryButton>
    </div>
 </template>
 

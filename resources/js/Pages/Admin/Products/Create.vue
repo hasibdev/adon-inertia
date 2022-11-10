@@ -1,6 +1,7 @@
 <script setup>
 import { useForm } from '@inertiajs/inertia-vue3'
 import InputControl from '@/Components/forms/InputControl.vue'
+import PrimaryButton from "@/Components/Base/PrimaryButton"
 
 const form = useForm({
   name: '',
@@ -28,8 +29,7 @@ export default {
 
 
       <div class="flex justify-end">
-        <button :disabled="form.processing" type="submit"
-          class="p-3 bg-teal-600 text-white rounded w-1/3 text-lg ">Save</button>
+        <PrimaryButton :loading="form.processing" type="submit">Save</PrimaryButton>
       </div>
     </form>
   </div>

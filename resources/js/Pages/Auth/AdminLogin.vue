@@ -1,6 +1,7 @@
 <script setup>
 import { useForm } from '@inertiajs/inertia-vue3'
-import InputControl from '@/Components/forms/InputControl.vue'
+import InputControl from '@/Components/forms/InputControl'
+import PrimaryButton from "@/Components/Base/PrimaryButton"
 
 const form = useForm({
   identifier: 'admin@test.com',
@@ -25,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <div class="w-1/2 mx-auto bg-slate-100 shadow-md p-10 pt-10">
+  <div class="w-10/12 md:w-1/2 xl:w-1/3 mx-auto bg-slate-100 shadow-md p-10 pt-10">
     <h3 class="text-3xl mb-4 text-center">Admin Login</h3>
 
     <div>
@@ -36,7 +37,8 @@ export default {
           class="mb-3" />
 
         <div class="flex justify-end">
-          <button type="submit" class="p-3 bg-teal-600 text-white rounded w-1/3 text-lg ">Login</button>
+          <!-- <button type="submit" class="p-3 bg-teal-600 text-white rounded w-1/3 text-lg ">Login</button> -->
+          <PrimaryButton :loading="form.processing" type="submit">Login</PrimaryButton>
         </div>
       </form>
     </div>

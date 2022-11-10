@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import InputControl from '@/Components/forms/InputControl.vue'
 import DataTable from '@/Components/Base/DataTable'
 import Modal from '@/Components/Base/Modal'
+import PrimaryButton from "@/Components/Base/PrimaryButton"
 import { useForm } from '@inertiajs/inertia-vue3'
 
 const props = defineProps({
@@ -56,8 +57,7 @@ export default {
           class="mb-3" />
 
         <div class="flex justify-end">
-          <button :disabled="createForm.processing" type="submit"
-            class="p-3 bg-teal-600 text-white rounded w-1/3 text-lg ">Save</button>
+          <PrimaryButton :loading="createForm.processing" type="submit">Save</PrimaryButton>
         </div>
       </form>
     </Modal>

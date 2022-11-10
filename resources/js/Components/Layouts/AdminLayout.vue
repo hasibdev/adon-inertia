@@ -5,7 +5,7 @@ import AdminSidebar from "./AdminSidebar.vue"
 
 <template>
   <div>
-    <AdminHeader class="h-16 border-b" />
+    <AdminHeader class="h-18 border-b" />
 
     <div class="body-content">
       <AdminSidebar class="w-20 border-r" />
@@ -19,10 +19,16 @@ import AdminSidebar from "./AdminSidebar.vue"
 </template>
 
 <style lang="scss" scoped>
+$header_height: 4.5rem;
+
+.h-18 {
+  height: $header_height;
+}
+
 .body-content {
   display: flex;
   width: 100%;
-  height: calc(100vh - 4rem);
+  height: calc(100vh - $header_height);
   overflow: hidden;
 }
 </style>
