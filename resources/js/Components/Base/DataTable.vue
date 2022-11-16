@@ -127,6 +127,14 @@ const getColName = (col) => {
       white-space: nowrap;
       text-align: left;
 
+      &.text-right {
+        text-align: right;
+      }
+
+      &.text-center {
+        text-align: center;
+      }
+
       .span {
         background-color: #f6f7fb;
         display: block;

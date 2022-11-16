@@ -4,6 +4,7 @@ import InputControl from '@/Components/forms/InputControl.vue'
 import DataTable from '@/Components/Base/DataTable'
 import Modal from '@/Components/Base/Modal'
 import PrimaryButton from "@/Components/Base/PrimaryButton"
+import ActionDropdown from "@/Components/Base/ActionDropdown"
 import { useForm } from '@inertiajs/inertia-vue3'
 
 const props = defineProps({
@@ -13,7 +14,16 @@ const props = defineProps({
   }
 })
 
-const fields = ['name', 'description']
+const fields = [
+  'name',
+  'description',
+  {
+    label: "Action",
+    field: "action",
+    thClass: "text-right",
+    tdClass: "text-right",
+  }
+]
 
 const createModalStatus = ref(false)
 const createForm = useForm({
@@ -41,12 +51,18 @@ export default {
 <template>
   <div>
     <div class="mb-4 flex justify-between">
-      <h1>Categories</h1>
+      <h1 class="">Categories</h1>
 
       <button @click="createModalStatus = true">Create New</button>
     </div>
 
-    <DataTable :data="props.data.data" :fields="fields"></DataTable>
+    <DataTable :data="props.data.data" :fields="fields">
+      <template #action>
+        <ActionDropdown>
+
+        </ActionDropdown>
+      </template>
+    </DataTable>
 
     <Modal v-model="createModalStatus">
       <h1 class="mb-3">Create Category</h1>
