@@ -7,6 +7,7 @@ export default class AuthController {
   }
 
   public async login({ auth, request, response }: HttpContextContract) {
+    return { message: "Hello world!" }
     const payload = await request.validate(LoginValidator)
     await auth.use('admin').attempt(payload.identifier, payload.password)
 
