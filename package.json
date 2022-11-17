@@ -6,8 +6,7 @@
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
     "start": "node server.js",
-    "lint": "eslint . --ext=.ts",
-    "prod": "node ace build --production && cp .env /build"
+    "lint": "eslint . --ext=.ts"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.4.1",
