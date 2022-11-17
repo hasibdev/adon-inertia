@@ -1,11 +1,13 @@
 import Route from '@ioc:Adonis/Core/Route'
+import Category from 'App/Models/Category'
 
 // Public Routes
 Route.get('/', ({ inertia }) => {
   return inertia.render('Home')
 })
 Route.get('/about', async ({ inertia }) => {
-  return inertia.render('About')
+  const data = Category.all()
+  return inertia.render('About', { data })
 })
 
 // Auth
