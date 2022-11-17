@@ -30,11 +30,11 @@ const databaseConfig: DatabaseConfig = {
     | Configuration for MySQL database. Make sure to install the driver
     | from npm when using this connection
     |
-    | npm i mysql2
+    | npm i mysql
     |
     */
     mysql: {
-      client: 'mysql2',
+      client: 'mysql',
       connection: {
         host: Env.get('MYSQL_HOST'),
         port: Env.get('MYSQL_PORT'),
