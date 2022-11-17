@@ -3,10 +3,11 @@ import Admin from 'App/Models/Admin'
 
 export default class extends BaseSeeder {
   public async run() {
-    await Admin.create({
+    const email = 'admin@test.com'
+    await Admin.updateOrCreate({ email }, {
       first_name: 'Super',
       last_name: 'Admin',
-      email: 'admin@test.com',
+      email,
       password: '123456'
     })
   }
