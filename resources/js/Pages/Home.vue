@@ -4,7 +4,7 @@ import PrimaryButton from "@/Components/Base/PrimaryButton"
 
 <template>
    <div>
-      <h1 class="text-center">Home Page</h1>
+      <h1 class="text-center">Home Page Update</h1>
 
       <PrimaryButton>Click here</PrimaryButton>
    </div>
