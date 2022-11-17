@@ -8,7 +8,6 @@ export default class AuthController {
 
   public async login({ auth, request, response }: HttpContextContract) {
     const payload = await request.validate(LoginValidator)
-    return payload
     await auth.use('admin').attempt(payload.identifier, payload.password)
 
     return response.redirect('/admin')
