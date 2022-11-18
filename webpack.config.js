@@ -190,7 +190,7 @@ Encore.enableVueLoader(() => { }, {
 }).configureDefinePlugin(options => {
    options['__VUE_OPTIONS_API__'] = true
    options['__VUE_PROD_DEVTOOLS__'] = false
- })
+})
 
 
 /*

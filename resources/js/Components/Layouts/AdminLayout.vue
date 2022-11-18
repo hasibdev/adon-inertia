@@ -11,7 +11,7 @@ import AdminSidebar from "./AdminSidebar.vue"
       <AdminSidebar class="w-20 border-r" />
 
       <!-- Page Outupt -->
-      <div class="bg-slate-50 p-6 w-full">
+      <div class="bg-slate-50 p-6 w-full overflow-auto custom-scrollbar">
         <slot />
       </div>
     </div>
@@ -31,4 +31,21 @@ $header_height: 4.5rem;
   height: calc(100vh - $header_height);
   overflow: hidden;
 }
+
+// Custom Scrollbar
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 5px;
+  }
+}
 </style>
+
