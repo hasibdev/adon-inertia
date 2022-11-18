@@ -11,10 +11,10 @@
 import Inertia from '@ioc:EidelLev/Inertia'
 
 Inertia.share({
-  errors: (ctx) => ctx.session.flashMessages.get('errors'),
-  params: (ctx) => ctx.request.params(),
+  errors: (ctx) => ctx.session.flashMessages.get('errors') || {},
+  params: (ctx) => ctx.params,
   query: (ctx) => ctx.request.qs(),
   isAuthenticated: (ctx) => ctx.auth.isAuthenticated,
   defaultGuard: (ctx) => ctx.auth.defaultGuard,
-  user: (ctx) => ctx.auth.user,
+  user: (ctx) => ctx.auth.user || null,
 }).version(() => Inertia.manifestFile('public/assets/manifest.json'))
